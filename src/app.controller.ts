@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { SomeType } from './types/something';
 
 @Controller()
 export class AppController {
@@ -7,6 +8,10 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return this.appService.getHello();
+    const something : SomeType = {
+      comment: "solo",
+      id: "algo"
+    }
+    return JSON.stringify(something);
   }
 }
